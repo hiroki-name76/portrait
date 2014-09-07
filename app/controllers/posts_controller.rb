@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+	before_action :authenticate, except: :show
+
+	def show 
+		@post = Event.find(params[:id])
+	end
+
 	def new 
 		@post = current_user.created_posts.build
 	end

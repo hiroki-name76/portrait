@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
-	has_many :created_posts,class_name 'Post', foreign_key :owner_id
-	has_many :tickets, dependent: :nullify
-    has_many :participating_events, through: :tickets, source: :even
-
+	
+	has_many :created_posts,class_name: 'Post', foreign_key: :owner_id
+	
 	def self.find_or_create_from_auth_hash(auth_hash)
 	    provider = auth_hash[:provider]
 	    uid = auth_hash[:uid]
