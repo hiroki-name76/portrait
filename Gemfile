@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'omniauth', '~>1.2.1'
 gem 'omniauth-twitter', '~>1.0.1'
+gem 'carrierwave', '~> 0.10.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -4,6 +4,17 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'sessions#failure'
   get '/logout' => 'sessions#destroy', as: :logout
 
+  resource :user, only: :destroy do
+    get 'retire'
+  end
+
+  resources :post, except: :index do
+    resources :tickets, only: [:new, :create, :destroy]
+  end
+  match '*path' => 'application#error404', via: :all
+end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

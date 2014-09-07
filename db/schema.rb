@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906015112) do
+ActiveRecord::Schema.define(version: 20140906121107) do
+
+  create_table "posts", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "name",       null: false
+    t.text     "content",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "post_image"
+  end
+
+  add_index "posts", ["owner_id"], name: "index_posts_on_owner_id"
 
   create_table "users", force: true do |t|
     t.string   "provider",   null: false
